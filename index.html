@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X Sports</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Floating Particles Background -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Gradient Orbs -->
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="x-highlight">X</span> Sports
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#matches">Matches</a></li>
+                <li><a href="#players">Players</a></li>
+                <li><a href="#standings">Standings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="tentative-tag"><i data-lucide="zap"></i> Season 1</div>
+            <h1>BEYOND THE <span class="gradient-text">LIMITS</span></h1>
+            <p>X Sports: Pushing high school players <strong>beyond the limits.</strong> Founded in 2023 by Xyven & Roie for entertainment.</p>
+            <div class="hero-buttons">
+                <a href="#matches" class="btn btn-primary btn-large">View Match</a>
+                <a href="#players" class="btn btn-outline btn-large">View Players</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matches Section -->
+    <section id="matches" class="section">
+        <div class="section-header">
+            <div>
+                <span class="sub-heading">Fixtures & Results</span>
+                <h2>Matches</h2>
+            </div>
+            <div class="filter-tabs">
+                <button class="tab-btn active">Main Event</button>
+            </div>
+        </div>
+
+        <div class="matches-grid">
+            <div class="match-card" data-match-players='[{"name":"BATIANCILA","image":"rbatiancila.png","position":"ST"},{"name":"NABOR","image":"cnabor.png","position":"ST"}]'>
+                <div class="match-meta">
+                    <span class="badge live">UPCOMING</span>
+                    <span class="match-date">SEP 6 | 9:15 AM</span>
+                </div>
+                <div class="teams-container">
+                    <div class="team">
+                        <div class="team-avatar-frame">
+                            <img src="rbatiancila.png" alt="Batiancila" onerror="this.src='https://via.placeholder.com/120?text=BATIANCILA'">
+                        </div>
+                        <span class="team-name">BATIANCILA</span>
+                    </div>
+
+                    <div class="vs-box">
+                        <span class="vs">vs</span>
+                        <small class="stadium">Crocodile Park</small>
+                    </div>
+
+                    <div class="team">
+                        <div class="team-avatar-frame">
+                            <img src="cnabor.png" alt="Nabor" onerror="this.src='https://via.placeholder.com/120?text=NABOR'">
+                        </div>
+                        <span class="team-name">NABOR</span>
+                    </div>
+                </div>
+                <div class="match-footer">
+                    <span>Friendly Match</span>
+                    <button class="btn btn-sm">Soccer Singles</button>
+                </div>
+            </div>
+
+            <div class="match-card" data-match-players='[{"name":"BATIANCILA","image":"rbatiancila.png","position":"ST"},{"name":"MILAR","image":"jmilar.png","position":"DEF"}]'>
+                <div class="match-meta">
+                    <span class="badge live">UPCOMING</span>
+                    <span class="match-date">SEP 13 | 9:30 AM</span>
+                </div>
+                <div class="teams-container">
+                    <div class="team">
+                        <div class="team-avatar-frame">
+                            <img src="rbatiancila.png" alt="Batiancila" onerror="this.src='https://via.placeholder.com/120?text=BATIANCILA'">
+                        </div>
+                        <span class="team-name">BATIANCILA</span>
+                    </div>
+
+                    <div class="vs-box">
+                        <span class="vs">vs</span>
+                        <small class="stadium">Crocodile Park</small>
+                    </div>
+
+                    <div class="team">
+                        <div class="team-avatar-frame">
+                            <img src="jmilar.png" alt="Milar" onerror="this.src='https://via.placeholder.com/120?text=MILAR'">
+                        </div>
+                        <span class="team-name">MILAR</span>
+                    </div>
+                </div>
+                <div class="match-footer">
+                    <span>Friendly Match</span>
+                    <button class="btn btn-sm">Soccer Singles</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Players Section -->
+    <section id="players" class="section">
+        <div class="section-header">
+            <div>
+                <span class="sub-heading">Season 1</span>
+                <h2>Players</h2>
+            </div>
+            <a href="#" class="view-all-link" id="viewAllBtn">Full <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-wrapper">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="playerSearch" placeholder="Search players..." class="search-input">
+            </div>
+        </div>
+
+        <div class="players-cards-container" id="playersContainer">
+            <!-- 1. Z. HERCEDA -->
+            <div class="card-crop-wrapper" data-rating="93" data-name="Z. HERCEDA" data-full-name="ZETH HERCEDA">
+                <img src="herceda_card.png" alt="Z. Herceda Card" class="player-card-img" onerror="this.src='https://via.placeholder.com/250x380?text=Z.+HERCEDA'">
+            </div>
+
+            <!-- 2. C. NABOR -->
+            <div class="card-crop-wrapper" data-rating="89" data-name="C. NABOR" data-full-name="CLIFFORD JOHN NABOR JR">
+                <img src="nabor_card.png" alt="C. Nabor Card" class="player-card-img" onerror="this.src='https://via.placeholder.com/250x380?text=C.+NABOR'">
+            </div>
+
+            <!-- 3. R. BATIANCILA -->
+            <div class="card-crop-wrapper" data-rating="82" data-name="R. BATIANCILA" data-full-name="ROIE BATIANCILA">
+                <img src="batiancila_card.png" alt="R. Batiancila Card" class="player-card-img" onerror="this.src='https://via.placeholder.com/250x380?text=R.+BATIANCILA'">
+            </div>
+
+            <!-- 4. J. MILAR -->
+            <div class="card-crop-wrapper" data-rating="80" data-name="J. MILAR" data-full-name="JOSH CLARK MILAR">
+                <img src="milar_card.png" alt="J. Milar Card" class="player-card-img" onerror="this.src='https://via.placeholder.com/250x380?text=J.+MILAR'">
+            </div>
+
+            <!-- 5. R. LINUGAW -->
+            <div class="card-crop-wrapper" data-rating="75" data-name="R. LINUGAW" data-full-name="REYVEN JAY LINUGAW">
+                <img src="linugaw_card.png" alt="R. Linugaw Card" class="player-card-img" onerror="this.src='https://via.placeholder.com/250x380?text=R.+LINUGAW'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Standings Section -->
+    <section id="standings" class="section">
+        <div class="section-header">
+            <div>
+                <span class="sub-heading">Season 1</span>
+                <h2>Standings</h2>
+            </div>
+        </div>
+
+        <div class="standings-container">
+            <div class="leaderboard-table">
+                <div class="table-header">
+                    <div class="header-cell rank">Rank</div>
+                    <div class="header-cell player">Player</div>
+                    <div class="header-cell rating">Rating</div>
+                    <div class="header-cell points">Points</div>
+                    <div class="header-cell win-rate">Win Rate</div>
+                </div>
+                
+                <div class="table-body" id="leaderboardBody">
+                    <!-- Player rows will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Player Stats Modal -->
+    <div id="playerStatsModal" class="player-stats-modal">
+        <div class="stats-modal-content">
+            <button class="close-stats-modal" id="closeStatsModal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="stats-header">
+                <div class="stats-player-info">
+                    <div class="stats-avatar">
+                        <img id="statsPlayerImg" src="" alt="Player" class="stats-player-img">
+                    </div>
+                    <div class="stats-player-details">
+                        <h3 id="statsPlayerName">Player Name</h3>
+                        <p id="statsPlayerRating">Rating: 93</p>
+                    </div>
+                </div>
+                <div class="win-rate-circle">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="progress-ring__circle" stroke="var(--primary)" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                    </svg>
+                    <div class="win-rate-text">
+                        <span id="statsWinRate">0%</span>
+                        <small>Win Rate</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon yellow-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statsYellowCards">0</span>
+                        <span class="stat-label">Yellow Cards</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon red-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statsRedCards">0</span>
+                        <span class="stat-label">Red Cards</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon goals">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statsGoals">0</span>
+                        <span class="stat-label">Goals</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon assists">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statsAssists">0</span>
+                        <span class="stat-label">Assists</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon matches">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statsMatches">0</span>
+                        <span class="stat-label">Matches</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon wins">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statsWins">0</span>
+                        <span class="stat-label">Wins</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon losses">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m8 11 4 4 4-4"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statsLosses">0</span>
+                        <span class="stat-label">Losses</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon points">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="statsPoints">0</span>
+                        <span class="stat-label">Points</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Soccer Field Modal -->
+    <div id="soccerFieldModal" class="soccer-field-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="formation-header">
+                <div class="formation-title" id="formationTitle">Formation</div>
+            </div>
+            <div class="soccer-field">
+                <div class="grass-pattern"></div>
+                <div class="penalty-area-left"></div>
+                <div class="penalty-area-right"></div>
+                <div class="goal-left"></div>
+                <div class="goal-right"></div>
+                <div class="corner-arc corner-arc-tl"></div>
+                <div class="corner-arc corner-arc-tr"></div>
+                <div class="corner-arc corner-arc-bl"></div>
+                <div class="corner-arc corner-arc-br"></div>
+                <div class="center-circle" id="formationPlayers">
+                    <!-- Players will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><span class="x-highlight">X</span> Sports</div>
+                <p>Founded in 2023 by Xyven & Roie</p>
+            </div>
+            <div class="footer-socials">
+                <a href="#"><i data-lucide="twitter"></i></a>
+                <a href="#"><i data-lucide="youtube"></i></a>
+                <a href="#"><i data-lucide="instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 X Sports, All Rights Reserved: Any elements or sound effects used in our videos or projects are <strong>PURELY</strong> coincidental.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
