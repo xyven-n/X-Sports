@@ -77,7 +77,7 @@
                 <div class="teams-container">
                     <div class="team">
                         <div class="team-avatar-frame">
-                            <img src="rbatiancila.png" alt="Batiancila" onerror="this.src='https://placehold.co/120?text=BATIANCILA'">
+                            <img src="rbatiancila.png" alt="Batiancila" onerror="this.onerror=null; this.src='https://placehold.co/120?text=BATIANCILA';">
                         </div>
                         <span class="team-name">BATIANCILA</span>
                     </div>
@@ -89,7 +89,7 @@
 
                     <div class="team">
                         <div class="team-avatar-frame">
-                            <img src="cnabor.png" alt="Nabor" onerror="this.src='https://placehold.co/120?text=NABOR'">
+                            <img src="cnabor.png" alt="Nabor" onerror="this.onerror=null; this.src='https://placehold.co/120?text=NABOR';">
                         </div>
                         <span class="team-name">NABOR</span>
                     </div>
@@ -108,7 +108,7 @@
                 <div class="teams-container">
                     <div class="team">
                         <div class="team-avatar-frame">
-                            <img src="rbatiancila.png" alt="Batiancila" onerror="this.src='https://placehold.co/120?text=BATIANCILA'">
+                            <img src="rbatiancila.png" alt="Batiancila" onerror="this.onerror=null; this.src='https://placehold.co/120?text=BATIANCILA';">
                         </div>
                         <span class="team-name">BATIANCILA</span>
                     </div>
@@ -120,7 +120,7 @@
 
                     <div class="team">
                         <div class="team-avatar-frame">
-                            <img src="jmilar.png" alt="Milar" onerror="this.src='https://placehold.co/120?text=MILAR'">
+                            <img src="jmilar.png" alt="Milar" onerror="this.onerror=null; this.src='https://placehold.co/120?text=MILAR';">
                         </div>
                         <span class="team-name">MILAR</span>
                     </div>
@@ -143,7 +143,6 @@
             <a href="#" class="view-all-link" id="viewAllBtn">Full <i data-lucide="arrow-right"></i></a>
         </div>
 
-        <!-- Search Bar -->
         <div class="search-container">
             <div class="search-wrapper">
                 <i data-lucide="search" class="search-icon"></i>
@@ -154,27 +153,27 @@
         <div class="players-cards-container" id="playersContainer">
             <!-- 1. Z. HERCEDA -->
             <div class="card-crop-wrapper" data-rating="93" data-name="Z. HERCEDA" data-full-name="ZETH HERCEDA">
-                <img src="herceda_card.png" alt="Z. Herceda Card" class="player-card-img" onerror="this.src='https://placehold.co/250x380?text=Z.+HERCEDA'">
+                <img src="herceda_card.png" alt="Z. Herceda Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=Z.+HERCEDA';">
             </div>
 
             <!-- 2. C. NABOR -->
             <div class="card-crop-wrapper" data-rating="89" data-name="C. NABOR" data-full-name="CLIFFORD JOHN NABOR JR">
-                <img src="nabor_card.png" alt="C. Nabor Card" class="player-card-img" onerror="this.src='https://placehold.co/250x380?text=C.+NABOR'">
+                <img src="nabor_card.png" alt="C. Nabor Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=C.+NABOR';">
             </div>
 
             <!-- 3. R. BATIANCILA -->
             <div class="card-crop-wrapper" data-rating="82" data-name="R. BATIANCILA" data-full-name="ROIE BATIANCILA">
-                <img src="batiancila_card.png" alt="R. Batiancila Card" class="player-card-img" onerror="this.src='https://placehold.co/250x380?text=R.+BATIANCILA'">
+                <img src="batiancila_card.png" alt="R. Batiancila Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=R.+BATIANCILA';">
             </div>
 
             <!-- 4. J. MILAR -->
             <div class="card-crop-wrapper" data-rating="80" data-name="J. MILAR" data-full-name="JOSH CLARK MILAR">
-                <img src="milar_card.png" alt="J. Milar Card" class="player-card-img" onerror="this.src='https://placehold.co/250x380?text=J.+MILAR'">
+                <img src="milar_card.png" alt="J. Milar Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=J.+MILAR';">
             </div>
 
             <!-- 5. R. LINUGAW -->
             <div class="card-crop-wrapper" data-rating="75" data-name="R. LINUGAW" data-full-name="REYVEN JAY LINUGAW">
-                <img src="linugaw_card.png" alt="R. Linugaw Card" class="player-card-img" onerror="this.src='https://placehold.co/250x380?text=R.+LINUGAW'">
+                <img src="linugaw_card.png" alt="R. Linugaw Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=R.+LINUGAW';">
             </div>
         </div>
     </section>
@@ -198,9 +197,7 @@
                     <div class="header-cell win-rate">Win Rate</div>
                 </div>
                 
-                <div class="table-body" id="leaderboardBody">
-                    <!-- Player rows will be generated by JavaScript -->
-                </div>
+                <div class="table-body" id="leaderboardBody"></div>
             </div>
         </div>
     </section>
@@ -336,9 +333,7 @@
                 <div class="corner-arc corner-arc-tr"></div>
                 <div class="corner-arc corner-arc-bl"></div>
                 <div class="corner-arc corner-arc-br"></div>
-                <div class="center-circle" id="formationPlayers">
-                    <!-- Players will be dynamically inserted here -->
-                </div>
+                <div class="center-circle" id="formationPlayers"></div>
             </div>
         </div>
     </div>
