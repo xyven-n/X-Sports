@@ -129,18 +129,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const playerCards = document.querySelectorAll('.card-crop-wrapper');
     const viewAllBtn = document.getElementById('viewAllBtn');
     const searchInput = document.getElementById('playerSearch');
+    const sportButtons = document.querySelectorAll('.sport-btn');
     let showingAll = false;
+    let currentSport = 'soccer';
     
     function showTopPlayers() {
-        const sortedCards = Array.from(playerCards).sort((a, b) => {
+        const sportCards = Array.from(playerCards).filter(card => {
+            const cardSport = card.dataset.sport || 'soccer';
+            return cardSport === currentSport;
+        });
+        
+        const sortedCards = sportCards.sort((a, b) => {
             const ratingA = parseInt(a.dataset.rating) || 0;
             const ratingB = parseInt(b.dataset.rating) || 0;
             return ratingB - ratingA;
         });
         
         playerCards.forEach(card => {
-            card.classList.add('hidden');
-            card.classList.remove('highlighted');
+            const cardSport = card.dataset.sport || 'soccer';
+            if (cardSport === currentSport) {
+                card.classList.add('hidden');
+                card.classList.remove('highlighted');
+            } else {
+                card.classList.add('hidden');
+            }
         });
         
         sortedCards.slice(0, 3).forEach(card => {
@@ -153,8 +165,13 @@ document.addEventListener("DOMContentLoaded", () => {
     
     function showAllPlayers() {
         playerCards.forEach(card => {
-            card.classList.remove('hidden');
-            card.classList.remove('highlighted');
+            const cardSport = card.dataset.sport || 'soccer';
+            if (cardSport === currentSport) {
+                card.classList.remove('hidden');
+                card.classList.remove('highlighted');
+            } else {
+                card.classList.add('hidden');
+            }
         });
         
         showingAll = true;
@@ -196,6 +213,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             
             playerCards.forEach(card => {
+                const cardSport = card.dataset.sport || 'soccer';
+                
+                // Only show cards from current sport
+                if (cardSport !== currentSport) {
+                    card.classList.add('hidden');
+                    card.classList.remove('highlighted');
+                    return;
+                }
+                
                 card.classList.remove('hidden');
                 card.classList.remove('highlighted');
                 
@@ -211,15 +237,122 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     
+    // Sports Filter
+    sportButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            sportButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            currentSport = button.dataset.sport;
+            
+            // Filter cards based on sport
+            playerCards.forEach(card => {
+                const cardSport = card.dataset.sport || 'soccer';
+                
+                if (cardSport === currentSport) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // Reset view all button for current sport
+            showingAll = false;
+            updateViewAllButton();
+        });
+    });
+    
     showTopPlayers();
     
     // Standings & Modal
     const playersData = [
-        { name: "Z. HERCEDA", fullName: "ZETH HERCEDA", rating: 93, image: "zherceda.png", yellowCards: 0, redCards: 0, goals: 11, assists: 2, wins: 8, losses: 1 },
-        { name: "C. NABOR", fullName: "CLIFFORD JOHN NABOR JR", rating: 89, image: "cnabor.png", yellowCards: 0, redCards: 0, goals: 6, assists: 0, wins: 2, losses: 0 },
-        { name: "R. BATIANCILA", fullName: "ROIE BATIANCILA", rating: 82, image: "rbatiancila.png", yellowCards: 1, redCards: 0, goals: 2, assists: 1, wins: 0, losses: 2 },
-        { name: "J. MILAR", fullName: "JOSH CLARK MILAR", rating: 80, image: "jmilar.png", yellowCards: 0, redCards: 0, goals: 2, assists: 0, wins: 2, losses: 1 },
-        { name: "R. LINUGAW", fullName: "REYVEN JAY LINUGAW", rating: 75, image: "rlinugaw.png", yellowCards: 0, redCards: 0, goals: 5, assists: 0, wins: 1, losses: 0 }
+        { 
+            name: "Z. HERCEDA", 
+            fullName: "ZETH HERCEDA", 
+            rating: 93, 
+            image: "zherceda.png", 
+            yellowCards: 0, 
+            redCards: 0, 
+            goals: 12, 
+            assists: 2, 
+            wins: 8, 
+            losses: 1,
+            matchHistory: [
+                { opponent: "UIC", score: "2 - 0", result: "WIN", goalsScored: 1, team: "SPAC" },
+                { opponent: "???", score: "0(1) - 0(0)", result: "WIN", goalsScored: 1, team: "SPAC" },
+                { opponent: "???", score: "3 - 2", result: "LOSS", goalsScored: 2, team: "SPAC" },
+                { opponent: "???", score: "2 - 1", result: "WIN", goalsScored: 1, team: "SPAC" },
+                { opponent: "???", score: "1 - 0", result: "WIN", goalsScored: 0, team: "SPAC" },
+                { opponent: "???", score: "4 - 3", result: "WIN", goalsScored: 3, team: "SPAC" },
+                { opponent: "???", score: "5 - 2", result: "WIN", goalsScored: 2, team: "SPAC" },
+                { opponent: "???", score: "3 - 2", result: "WIN", goalsScored: 2, team: "SPAC" },
+                { opponent: "???", score: "1(3) - 1(1)", result: "WIN", goalsScored: 0, team: "SPAC" }
+            ]
+        },
+        { 
+            name: "C. NABOR", 
+            fullName: "CLIFFORD JOHN NABOR JR", 
+            rating: 89, 
+            image: "cnabor.png", 
+            yellowCards: 0, 
+            redCards: 0, 
+            goals: 6, 
+            assists: 0, 
+            wins: 2, 
+            losses: 0,
+            matchHistory: [
+                { opponent: "PHR", score: "3 - 2", result: "WIN", goalsScored: 1, team: "CJE" },
+                { opponent: "PHIRO", score: "5 - 1", result: "WIN", goalsScored: 5, team: "CCL" }
+            ]
+        },
+        { 
+            name: "R. BATIANCILA", 
+            fullName: "ROIE BATIANCILA", 
+            rating: 82, 
+            image: "rbatiancila.png", 
+            yellowCards: 1, 
+            redCards: 0, 
+            goals: 2, 
+            assists: 1, 
+            wins: 0, 
+            losses: 2,
+            matchHistory: [
+                { opponent: "PHR", score: "3 - 2", result: "LOSS", goalsScored: 1, team: "CJE" },
+                { opponent: "PHIRO", score: "5 - 1", result: "LOSS", goalsScored: 1, team: "CCL" }
+            ]
+        },
+        { 
+            name: "J. MILAR", 
+            fullName: "JOSH CLARK MILAR", 
+            rating: 80, 
+            image: "jmilar.png", 
+            yellowCards: 0, 
+            redCards: 0, 
+            goals: 2, 
+            assists: 0, 
+            wins: 2, 
+            losses: 1,
+            matchHistory: [
+                { opponent: "EBORA", score: "1 - 0", result: "LOSS", goalsScored: 0, team: "MILAR" },
+                { opponent: "DCSDAES", score: "1 - 0", result: "WIN", goalsScored: 1, team: "UIC" },
+                { opponent: "NABOR", score: "1 - 0", result: "WIN", goalsScored: 1, team: "MILAR" }
+            ]
+        },
+        { 
+            name: "R. LINUGAW", 
+            fullName: "REYVEN JAY LINUGAW", 
+            rating: 75, 
+            image: "rlinugaw.png", 
+            yellowCards: 0, 
+            redCards: 0, 
+            goals: 5, 
+            assists: 0, 
+            wins: 1, 
+            losses: 0,
+            matchHistory: [
+                { opponent: "AZH", score: "5 - 1", result: "WIN", goalsScored: 5, team: "Reyven" }
+            ]
+        }
     ];
     
     playersData.forEach(player => {
@@ -227,6 +360,11 @@ document.addEventListener("DOMContentLoaded", () => {
         player.matches = matches;
         player.points = (player.wins * 3) + (player.goals * 2) + (player.assists * 1) - (player.yellowCards * 1) - (player.redCards * 3);
         player.winRate = matches > 0 ? Math.round((player.wins / matches) * 100) : 0;
+        
+        // Ensure matchHistory exists for all players
+        if (!player.matchHistory) {
+            player.matchHistory = [];
+        }
     });
     
     const sortedPlayers = [...playersData].sort((a, b) => b.points - a.points);
@@ -298,6 +436,35 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('statsLosses').textContent = player.losses;
         document.getElementById('statsPoints').textContent = player.points;
         document.getElementById('statsWinRate').textContent = `${player.winRate}%`;
+        
+        // Populate match history
+        const matchHistoryList = document.getElementById('matchHistoryList');
+        matchHistoryList.innerHTML = '';
+        
+        if (player.matchHistory && player.matchHistory.length > 0) {
+            player.matchHistory.forEach((match, index) => {
+                const matchItem = document.createElement('div');
+                matchItem.className = 'match-history-item';
+                matchItem.style.animationDelay = `${index * 0.1}s`;
+                
+                const resultClass = match.result === 'WIN' ? 'win' : 'loss';
+                
+                matchItem.innerHTML = `
+                    <div class="match-header">
+                        <span class="match-teams">${match.team} vs ${match.opponent}</span>
+                        <span class="match-score">${match.score}</span>
+                        <span class="match-result ${resultClass}">${match.result}</span>
+                    </div>
+                    <div class="match-details">
+                        <span class="match-goals">scored ${match.goalsScored} goal${match.goalsScored !== 1 ? 's' : ''}</span>
+                    </div>
+                `;
+                
+                matchHistoryList.appendChild(matchItem);
+            });
+        } else {
+            matchHistoryList.innerHTML = '<div class="no-matches">No match history available</div>';
+        }
         
         const circle = document.querySelector('.progress-ring__circle');
         if (circle) {
