@@ -148,6 +148,8 @@
                 <button class="sport-btn" data-sport="pickleball">Pickleball</button>
                 <button class="sport-btn" data-sport="volleyball">Volleyball</button>
                 <button class="sport-btn" data-sport="kickball">Kickball</button>
+                <button class="sport-btn" data-sport="badminton">Badminton</button>
+                <button class="sport-btn" data-sport="basketball">Basketball</button>
             </div>
         </div>
 
@@ -198,6 +200,20 @@
             <div class="card-crop-wrapper" data-rating="0" data-name="TBD" data-full-name="TO BE DETERMINED" data-sport="kickball">
                 <img src="https://placehold.co/250x380?text=KICKBALL" alt="Kickball Placeholder" class="player-card-img">
             </div>
+
+            <!-- BADMINTON PLACEHOLDERS -->
+            <div class="card-crop-wrapper" data-rating="0" data-name="TBD" data-full-name="TO BE DETERMINED" data-sport="badminton">
+                <img src="https://placehold.co/250x380?text=BADMINTON" alt="Badminton Placeholder" class="player-card-img">
+            </div>
+
+            <!-- BASKETBALL PLAYERS -->
+            <div class="card-crop-wrapper" data-rating="85" data-name="R. BATIANCILA" data-full-name="ROIE BATIANCILA" data-sport="basketball">
+                <img src="rbatiancila basketball ovr.png" alt="R. Batiancila Basketball Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=R.+BATIANCILA';">
+            </div>
+
+            <div class="card-crop-wrapper" data-rating="80" data-name="C. NABOR" data-full-name="CLIFFORD JOHN NABOR JR" data-sport="basketball">
+                <img src="cnabor basketball ovr.png" alt="C. Nabor Basketball Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=C.+NABOR';">
+            </div>
         </div>
     </section>
 
@@ -207,6 +223,18 @@
             <div>
                 <span class="sub-heading">Season 1</span>
                 <h2>Standings</h2>
+            </div>
+        </div>
+
+        <!-- Standings Sports Menu -->
+        <div class="sports-menu-container">
+            <div class="sports-menu standings-sports-menu">
+                <button class="sport-btn active" data-standings-sport="soccer">Soccer</button>
+                <button class="sport-btn" data-standings-sport="pickleball">Pickleball</button>
+                <button class="sport-btn" data-standings-sport="volleyball">Volleyball</button>
+                <button class="sport-btn" data-standings-sport="kickball">Kickball</button>
+                <button class="sport-btn" data-standings-sport="badminton">Badminton</button>
+                <button class="sport-btn" data-standings-sport="basketball">Basketball</button>
             </div>
         </div>
 
@@ -255,7 +283,7 @@
             
             <div class="stats-content-wrapper">
                 <div class="stats-grid">
-                    <div class="stat-card">
+                    <div class="stat-card" id="yellowCardStat">
                         <div class="stat-icon yellow-card">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
                         </div>
@@ -265,7 +293,7 @@
                         </div>
                     </div>
                     
-                    <div class="stat-card">
+                    <div class="stat-card" id="redCardStat">
                         <div class="stat-icon red-card">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
                         </div>
@@ -275,13 +303,13 @@
                         </div>
                     </div>
                     
-                    <div class="stat-card">
+                    <div class="stat-card" id="goalsStat">
                         <div class="stat-icon goals">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
                         </div>
                         <div class="stat-info">
                             <span class="stat-value" id="statsGoals">0</span>
-                            <span class="stat-label">Goals</span>
+                            <span class="stat-label" id="statsGoalsLabel">Goals</span>
                         </div>
                     </div>
                     
@@ -331,7 +359,7 @@
                         </div>
                         <div class="stat-info">
                             <span class="stat-value" id="statsPoints">0</span>
-                            <span class="stat-label">Points</span>
+                            <span class="stat-label">Pts Rating</span>
                         </div>
                     </div>
                 </div>
