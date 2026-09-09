@@ -372,7 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
             {
                 name: "C. NABOR",
                 fullName: "CLIFFORD JOHN NABOR JR",
-                rating: 80,
+                rating: 84,
                 image: "cnabor.png",
                 yellowCards: 0,
                 redCards: 0,
