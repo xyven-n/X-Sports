@@ -63,76 +63,120 @@
                 <span class="sub-heading">Fixtures & Results</span>
                 <h2>Matches</h2>
             </div>
-            <div class="filter-tabs">
-                <button class="tab-btn active">Main Event</button>
+            <div class="filter-tabs match-filter-tabs">
+                <button class="tab-btn active" data-match-filter="all">All</button>
+                <button class="tab-btn" data-match-filter="main">Main Event</button>
+                <button class="tab-btn" data-match-filter="side">Side Events</button>
             </div>
         </div>
 
-        <div class="matches-grid">
-            <div class="match-card" data-match-players='[{"name":"BATIANCILA","image":"rbatiancila.png","position":"ST"},{"name":"NABOR","image":"cnabor.png","position":"ST"}]'>
-                <div class="match-meta">
-                    <span class="badge live">UPCOMING</span>
-                    <span class="match-date">SEP 13 | 9:15 AM</span>
-                </div>
-                <div class="teams-container">
-                    <div class="team">
-                        <div class="team-avatar-frame">
-                            <img src="rbatiancila.png" alt="Batiancila" onerror="this.onerror=null; this.src='https://placehold.co/120?text=BATIANCILA';">
+        <!-- MAIN EVENT CATEGORY -->
+        <div class="match-category-block" data-category="main">
+            <div class="event-category-badge">Main Event</div>
+            <div class="matches-grid">
+                <div class="match-card" data-court-type="soccer" data-match-players='[{"name":"BATIANCILA","image":"rbatiancila.png","position":"ST"},{"name":"NABOR","image":"cnabor.png","position":"ST"}]'>
+                    <div class="match-meta">
+                        <span class="badge live">UPCOMING</span>
+                        <span class="match-date">SEP 27 | 9:15 AM</span>
+                    </div>
+                    <div class="teams-container">
+                        <div class="team">
+                            <div class="team-avatar-frame">
+                                <img src="rbatiancila.png" alt="Batiancila" onerror="this.onerror=null; this.src='https://placehold.co/120?text=BATIANCILA';">
+                            </div>
+                            <span class="team-name">BATIANCILA</span>
                         </div>
-                        <span class="team-name">BATIANCILA</span>
-                    </div>
 
-                    <div class="vs-box">
-                        <span class="vs">vs</span>
-                        <small class="stadium">Crocodile Park</small>
-                    </div>
-
-                    <div class="team">
-                        <div class="team-avatar-frame">
-                            <img src="cnabor.png" alt="Nabor" onerror="this.onerror=null; this.src='https://placehold.co/120?text=NABOR';">
+                        <div class="vs-box">
+                            <span class="vs">vs</span>
+                            <small class="stadium">Crocodile Park</small>
                         </div>
-                        <span class="team-name">NABOR</span>
+
+                        <div class="team">
+                            <div class="team-avatar-frame">
+                                <img src="cnabor.png" alt="Nabor" onerror="this.onerror=null; this.src='https://placehold.co/120?text=NABOR';">
+                            </div>
+                            <span class="team-name">NABOR</span>
+                        </div>
+                    </div>
+                    <div class="match-footer">
+                        <span>Friendly Match</span>
+                        <button class="btn btn-sm">Soccer Singles</button>
                     </div>
                 </div>
-                <div class="match-footer">
-                    <span>Friendly Match</span>
-                    <button class="btn btn-sm">Soccer Singles</button>
+
+                <div class="match-card" data-court-type="soccer" data-match-players='[{"name":"BATIANCILA","image":"rbatiancila.png","position":"ST"},{"name":"MILAR","image":"jmilar.png","position":"DEF"}]'>
+                    <div class="match-meta">
+                        <span class="badge live">UPCOMING</span>
+                        <span class="match-date">OCT 4 | 9:30 AM</span>
+                    </div>
+                    <div class="teams-container">
+                        <div class="team">
+                            <div class="team-avatar-frame">
+                                <img src="rbatiancila.png" alt="Batiancila" onerror="this.onerror=null; this.src='https://placehold.co/120?text=BATIANCILA';">
+                            </div>
+                            <span class="team-name">BATIANCILA</span>
+                        </div>
+
+                        <div class="vs-box">
+                            <span class="vs">vs</span>
+                            <small class="stadium">Crocodile Park</small>
+                        </div>
+
+                        <div class="team">
+                            <div class="team-avatar-frame">
+                                <img src="jmilar.png" alt="Milar" onerror="this.onerror=null; this.src='https://placehold.co/120?text=MILAR';">
+                            </div>
+                            <span class="team-name">MILAR</span>
+                        </div>
+                    </div>
+                    <div class="match-footer">
+                        <span>Friendly Match</span>
+                        <button class="btn btn-sm">Soccer Singles</button>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="match-card" data-match-players='[{"name":"BATIANCILA","image":"rbatiancila.png","position":"ST"},{"name":"MILAR","image":"jmilar.png","position":"DEF"}]'>
-                <div class="match-meta">
-                    <span class="badge live">UPCOMING</span>
-                    <span class="match-date">SEP 20 | 9:30 AM</span>
-                </div>
-                <div class="teams-container">
-                    <div class="team">
-                        <div class="team-avatar-frame">
-                            <img src="rbatiancila.png" alt="Batiancila" onerror="this.onerror=null; this.src='https://placehold.co/120?text=BATIANCILA';">
+        <!-- SIDE EVENTS CATEGORY -->
+        <div class="match-category-block" data-category="side">
+            <div class="event-category-badge side-event-badge">Side Events</div>
+            <div class="matches-grid">
+                <div class="match-card" data-court-type="pickleball" data-match-players='[{"name":"MILAR","image":"jmilar.png","position":"L"},{"name":"?","image":"https://placehold.co/120/0e1930/00d2ff?text=?","position":"R"}]'>
+                    <div class="match-meta">
+                        <span class="badge live">UPCOMING</span>
+                        <span class="match-date">TBA</span>
+                    </div>
+                    <div class="teams-container">
+                        <div class="team">
+                            <div class="team-avatar-frame">
+                                <img src="jmilar.png" alt="Milar" onerror="this.onerror=null; this.src='https://placehold.co/120?text=MILAR';">
+                            </div>
+                            <span class="team-name">MILAR</span>
                         </div>
-                        <span class="team-name">BATIANCILA</span>
-                    </div>
 
-                    <div class="vs-box">
-                        <span class="vs">vs</span>
-                        <small class="stadium">Crocodile Park</small>
-                    </div>
-
-                    <div class="team">
-                        <div class="team-avatar-frame">
-                            <img src="jmilar.png" alt="Milar" onerror="this.onerror=null; this.src='https://placehold.co/120?text=MILAR';">
+                        <div class="vs-box">
+                            <span class="vs">vs</span>
+                            <small class="stadium">Crocodile Park</small>
                         </div>
-                        <span class="team-name">MILAR</span>
+
+                        <div class="team">
+                            <div class="team-avatar-frame question-avatar">
+                                <span class="avatar-question-mark">?</span>
+                            </div>
+                            <span class="team-name">?</span>
+                        </div>
                     </div>
-                </div>
-                <div class="match-footer">
-                    <span>Friendly Match</span>
-                    <button class="btn btn-sm">Soccer Singles</button>
+                    <div class="match-footer">
+                        <span>Friendly Match</span>
+                        <button class="btn btn-sm">Pickleball Singles</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Players Section -->
     <section id="players" class="section">
         <div class="section-header">
             <div>
@@ -161,52 +205,42 @@
         </div>
 
         <div class="players-cards-container" id="playersContainer">
-            <!-- 1. Z. HERCEDA -->
             <div class="card-crop-wrapper" data-rating="93" data-name="Z. HERCEDA" data-full-name="ZETH HERCEDA" data-sport="soccer">
                 <img src="herceda_card.png" alt="Z. Herceda Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=Z.+HERCEDA';">
             </div>
 
-            <!-- 2. C. NABOR -->
             <div class="card-crop-wrapper" data-rating="89" data-name="C. NABOR" data-full-name="CLIFFORD JOHN NABOR JR" data-sport="soccer">
                 <img src="nabor_card.png" alt="C. Nabor Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=C.+NABOR';">
             </div>
 
-            <!-- 3. R. BATIANCILA -->
             <div class="card-crop-wrapper" data-rating="82" data-name="R. BATIANCILA" data-full-name="ROIE BATIANCILA" data-sport="soccer">
                 <img src="batiancila_card.png" alt="R. Batiancila Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=R.+BATIANCILA';">
             </div>
 
-            <!-- 4. J. MILAR -->
             <div class="card-crop-wrapper" data-rating="80" data-name="J. MILAR" data-full-name="JOSH CLARK MILAR" data-sport="soccer">
                 <img src="milar_card.png" alt="J. Milar Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=J.+MILAR';">
             </div>
 
-            <!-- 5. R. LINUGAW -->
             <div class="card-crop-wrapper" data-rating="75" data-name="R. LINUGAW" data-full-name="REYVEN JAY LINUGAW" data-sport="soccer">
                 <img src="linugaw_card.png" alt="R. Linugaw Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=R.+LINUGAW';">
             </div>
 
-            <!-- PICKLEBALL PLACEHOLDERS -->
             <div class="card-crop-wrapper" data-rating="0" data-name="TBD" data-full-name="TO BE DETERMINED" data-sport="pickleball">
                 <img src="https://placehold.co/250x380?text=PICKLEBALL" alt="Pickleball Placeholder" class="player-card-img">
             </div>
 
-            <!-- VOLLEYBALL PLACEHOLDERS -->
             <div class="card-crop-wrapper" data-rating="0" data-name="TBD" data-full-name="TO BE DETERMINED" data-sport="volleyball">
                 <img src="https://placehold.co/250x380?text=VOLLEYBALL" alt="Volleyball Placeholder" class="player-card-img">
             </div>
 
-            <!-- KICKBALL PLACEHOLDERS -->
             <div class="card-crop-wrapper" data-rating="0" data-name="TBD" data-full-name="TO BE DETERMINED" data-sport="kickball">
                 <img src="https://placehold.co/250x380?text=KICKBALL" alt="Kickball Placeholder" class="player-card-img">
             </div>
 
-            <!-- BADMINTON PLACEHOLDERS -->
             <div class="card-crop-wrapper" data-rating="0" data-name="TBD" data-full-name="TO BE DETERMINED" data-sport="badminton">
                 <img src="https://placehold.co/250x380?text=BADMINTON" alt="Badminton Placeholder" class="player-card-img">
             </div>
 
-            <!-- BASKETBALL PLAYERS -->
             <div class="card-crop-wrapper" data-rating="85" data-name="R. BATIANCILA" data-full-name="ROIE BATIANCILA" data-sport="basketball">
                 <img src="batiancila gold card bball.png" alt="R. Batiancila Basketball Card" class="player-card-img" onerror="this.onerror=null; this.src='https://placehold.co/250x380?text=R.+BATIANCILA';">
             </div>
@@ -226,7 +260,6 @@
             </div>
         </div>
 
-        <!-- Standings Sports Menu -->
         <div class="sports-menu-container">
             <div class="sports-menu standings-sports-menu">
                 <button class="sport-btn active" data-standings-sport="soccer">Soccer</button>
@@ -247,7 +280,6 @@
                     <div class="header-cell points">Points</div>
                     <div class="header-cell win-rate">Win Rate</div>
                 </div>
-                
                 <div class="table-body" id="leaderboardBody"></div>
             </div>
         </div>
@@ -366,15 +398,13 @@
                 
                 <div class="match-history-container">
                     <h4 class="match-history-title">Match History</h4>
-                    <div class="match-history-list" id="matchHistoryList">
-                        <!-- Match history items will be populated by JavaScript -->
-                    </div>
+                    <div class="match-history-list" id="matchHistoryList"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Soccer Field Modal -->
+    <!-- Dynamic Match Field/Court Modal -->
     <div id="soccerFieldModal" class="soccer-field-modal">
         <div class="modal-content">
             <button class="close-modal" id="closeModal">
@@ -383,7 +413,9 @@
             <div class="formation-header">
                 <div class="formation-title" id="formationTitle">Formation</div>
             </div>
-            <div class="soccer-field">
+
+            <!-- Soccer Field View -->
+            <div class="soccer-field" id="soccerFieldView">
                 <div class="grass-pattern"></div>
                 <div class="penalty-area-left"></div>
                 <div class="penalty-area-right"></div>
@@ -394,6 +426,18 @@
                 <div class="corner-arc corner-arc-bl"></div>
                 <div class="corner-arc corner-arc-br"></div>
                 <div class="center-circle" id="formationPlayers"></div>
+            </div>
+
+            <!-- Pickleball Court View -->
+            <div class="pickleball-court" id="pickleballCourtView" style="display: none;">
+                <div class="pb-net-post pb-net-post-top"></div>
+                <div class="pb-net-post pb-net-post-bottom"></div>
+                <div class="pb-net-line"></div>
+                <div class="pb-kitchen-line pb-kitchen-left"></div>
+                <div class="pb-kitchen-line pb-kitchen-right"></div>
+                <div class="pb-center-line pb-center-left"></div>
+                <div class="pb-center-line pb-center-right"></div>
+                <div id="pickleballPlayersContainer"></div>
             </div>
         </div>
     </div>
