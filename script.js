@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lucide.createIcons();
     }
     
-    // Add smooth scroll behavior for navigation links
+    // Smooth scroll behavior
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     
-    // Add active state to navigation links on scroll
+    // Navigation active state on scroll
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
     
@@ -57,48 +57,110 @@ document.addEventListener("DOMContentLoaded", () => {
             orb.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
         });
     });
+
+    // --- MATCHES CATEGORY FILTER TABS ---
+    const matchFilterTabs = document.querySelectorAll('.match-filter-tabs .tab-btn');
+    const categoryBlocks = document.querySelectorAll('.match-category-block');
+
+    matchFilterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            matchFilterTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const filter = tab.dataset.matchFilter;
+            categoryBlocks.forEach(block => {
+                const category = block.dataset.category;
+                if (filter === 'all' || filter === category) {
+                    block.classList.remove('hidden');
+                } else {
+                    block.classList.add('hidden');
+                }
+            });
+        });
+    });
     
-    // Soccer Field Modal Functionality
+    // --- MATCH MODAL (SOCCER & PICKLEBALL ADAPTIVE) ---
     const matchCards = document.querySelectorAll('.match-card');
     const modal = document.getElementById('soccerFieldModal');
     const closeModal = document.getElementById('closeModal');
     const formationTitle = document.getElementById('formationTitle');
     const formationPlayers = document.getElementById('formationPlayers');
+    const soccerFieldView = document.getElementById('soccerFieldView');
+    const pickleballCourtView = document.getElementById('pickleballCourtView');
+    const pickleballPlayersContainer = document.getElementById('pickleballPlayersContainer');
     
     matchCards.forEach(card => {
         card.addEventListener('click', () => {
             if (!card.dataset.matchPlayers) return;
             const matchData = JSON.parse(card.dataset.matchPlayers);
+            const courtType = card.dataset.courtType || 'soccer';
             
             formationTitle.textContent = matchData.map(p => p.name).join(' vs ');
-            formationPlayers.innerHTML = '';
             
-            matchData.forEach((player, index) => {
-                const positionClass = index === 0 ? 'player-left' : 'player-right';
-                const playerHTML = `
-                    <div class="player-container ${positionClass}">
-                        <span class="player-position">${player.position}</span>
+            if (courtType === 'pickleball') {
+                soccerFieldView.style.display = 'none';
+                pickleballCourtView.style.display = 'block';
+                pickleballPlayersContainer.innerHTML = '';
+
+                // Red dot position (MILAR - bottom-left service court)
+                const player1 = matchData[0];
+                const player1HTML = `
+                    <div class="player-container pb-milar-pos">
+                        <span class="player-position">${player1.name}</span>
                         <div class="player-inner">
-                            <img src="${player.image}" alt="${player.name}" class="field-player-img" onerror="this.onerror=null; this.src='https://placehold.co/120?text=${player.name}';">
+                            <img src="${player1.image}" alt="${player1.name}" class="field-player-img" onerror="this.onerror=null; this.src='https://placehold.co/120?text=${player1.name}';">
                         </div>
                     </div>
                 `;
-                formationPlayers.innerHTML += playerHTML;
-            });
+
+                // Green dot position (? / TBA - top-right service court)
+                const player2 = matchData[1];
+                const isPlaceholder = player2.name === '?' || !player2.image;
+                const player2HTML = `
+                    <div class="player-container pb-opponent-pos">
+                        <span class="player-position">${player2.name}</span>
+                        <div class="player-inner question-avatar" style="display:flex;align-items:center;justify-content:center;height:100%;">
+                            ${isPlaceholder 
+                                ? `<span style="font-size: 1.8rem; font-weight: 900; color: #00e676; text-shadow: 0 0 10px rgba(0,230,118,0.8);">?</span>` 
+                                : `<img src="${player2.image}" alt="${player2.name}" class="field-player-img">`
+                            }
+                        </div>
+                    </div>
+                `;
+
+                pickleballPlayersContainer.innerHTML = player1HTML + player2HTML;
+
+                setTimeout(() => {
+                    pickleballPlayersContainer.querySelectorAll('.player-container').forEach(c => c.classList.add('animate-in'));
+                }, 50);
+
+            } else {
+                pickleballCourtView.style.display = 'none';
+                soccerFieldView.style.display = 'block';
+                formationPlayers.innerHTML = '';
+                
+                matchData.forEach((player, index) => {
+                    const positionClass = index === 0 ? 'player-left' : 'player-right';
+                    const playerHTML = `
+                        <div class="player-container ${positionClass}">
+                            <span class="player-position">${player.position}</span>
+                            <div class="player-inner">
+                                <img src="${player.image}" alt="${player.name}" class="field-player-img" onerror="this.onerror=null; this.src='https://placehold.co/120?text=${player.name}';">
+                            </div>
+                        </div>
+                    `;
+                    formationPlayers.innerHTML += playerHTML;
+                });
+
+                setTimeout(() => {
+                    formationPlayers.querySelectorAll('.player-container').forEach(c => c.classList.add('animate-in'));
+                }, 50);
+            }
             
             if (typeof lucide !== 'undefined') lucide.createIcons();
             
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            
-            void modal.offsetWidth;
-            
-            setTimeout(() => {
-                const playerContainers = formationPlayers.querySelectorAll('.player-container');
-                playerContainers.forEach(container => {
-                    container.classList.add('animate-in');
-                });
-            }, 50);
         });
     });
     
@@ -125,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
     
-    // Player Cards Filter & Search
+    // --- PLAYER CARDS FILTER & SEARCH ---
     const playerCards = document.querySelectorAll('.card-crop-wrapper');
     const viewAllBtn = document.getElementById('viewAllBtn');
     const searchInput = document.getElementById('playerSearch');
@@ -236,7 +298,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     
-    // Sports Filter (Players Section)
     sportButtons.forEach(button => {
         button.addEventListener('click', () => {
             sportButtons.forEach(btn => btn.classList.remove('active'));
@@ -246,7 +307,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
             playerCards.forEach(card => {
                 const cardSport = card.dataset.sport || 'soccer';
-                
                 if (cardSport === currentSport) {
                     card.classList.remove('hidden');
                 } else {
@@ -261,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     showTopPlayers();
     
-    // --- STANDINGS & STATS DATA ---
+    // --- STANDINGS DATA ---
     const sportsStandings = {
         soccer: [
             { 
@@ -392,7 +452,6 @@ document.addEventListener("DOMContentLoaded", () => {
         badminton: []
     };
 
-    // Calculate dynamic points and win rates for all sports
     Object.entries(sportsStandings).forEach(([sportName, sportList]) => {
         sportList.forEach(player => {
             player.sport = sportName;
@@ -450,7 +509,6 @@ document.addEventListener("DOMContentLoaded", () => {
             leaderboardBody.appendChild(row);
         });
 
-        // Toggle full name on click
         leaderboardBody.querySelectorAll('.player-row-name').forEach(nameElement => {
             nameElement.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -469,7 +527,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Standings Sport Filter Listeners
     standingsSportBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             standingsSportBtns.forEach(b => b.classList.remove('active'));
@@ -478,7 +535,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Initial render for Soccer
     renderStandings('soccer');
 
     const playerStatsModal = document.getElementById('playerStatsModal');
@@ -495,7 +551,6 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         statsImg.src = player.image;
         
-        // Dynamic labels & cards based on sport
         const yellowCardStat = document.getElementById('yellowCardStat');
         const redCardStat = document.getElementById('redCardStat');
         const goalsLabel = document.getElementById('statsGoalsLabel');
@@ -520,7 +575,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('statsPoints').textContent = player.points;
         document.getElementById('statsWinRate').textContent = `${player.winRate}%`;
         
-        // Populate match history
         const matchHistoryList = document.getElementById('matchHistoryList');
         matchHistoryList.innerHTML = '';
         
